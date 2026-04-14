@@ -1,3 +1,5 @@
+import { MarkdownViewer } from './ui/MarkdownViewer';
+
 export default function Home() {
   return (
     <main className="h-screen flex justify-center items-center bg-linear-to-r from-rose-100 to-teal-100">
@@ -8,6 +10,7 @@ export default function Home() {
           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur reiciendis culpa nihil eius, assumenda cum sequi optio earum quibusdam
           eveniet! Quo odio inventore quam fuga numquam possimus iusto quidem molestiae. &
         </p>
+        <MarkdownViewer content={"Hola *Hola* **Hola**"}/>
       </section>
     </main>
   );
