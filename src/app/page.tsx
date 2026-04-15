@@ -10,7 +10,7 @@ export default function Home() {
           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur reiciendis culpa nihil eius, assumenda cum sequi optio earum quibusdam
           eveniet! Quo odio inventore quam fuga numquam possimus iusto quidem molestiae. &
         </p>
-        <MarkdownViewer content={"Hola *Hola* **Hola**"}/>
+        <MarkdownViewer content={"$f(x)=x+2$"}/>
       </section>
     </main>
   );
