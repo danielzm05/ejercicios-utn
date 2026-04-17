@@ -9,8 +9,8 @@ export default function MateriasPage() {
       </div>
       
       <div className='grid gap-3 grid-cols-3'>
-        <MateriaCard title='Analisis Matematico I' level={1} />
-        <MateriaCard title='Algebra I' level={1} />
+        <MateriaCard acronym='AM1' title='Analisis Matematico I' level={1} />
+        <MateriaCard acronym='AGA' title='Algebra I' level={1} />
       </div>
     </main>
   );
