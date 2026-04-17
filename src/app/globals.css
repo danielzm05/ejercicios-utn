@@ -1,32 +1,41 @@
 @import "tailwindcss";
 
 :root {
-  --background: #f7f3ee;
-  --foreground: #3139FB;
-  --text-1: var(--background);
+  --background: linear-gradient(to right, rgb(255, 228, 230), rgb(204, 251, 241));
+  --card: #f7f3ee;
+  --hover: #ffffffab;
+  --text-1: #3139fb;
   --text-2: #1c1c19;
   --text-3: #444654;
+  --text-4: #444654;
 }
 
 @theme inline {
   --color-background: var(--background);
-  --color-foreground: var(--foreground);
+  --color-card: var(--card);
   --font-heading: var(--font-space);
   --font-p: var(--font-inter);
+  --color-hover: var(--hover);
   --color-text-1: var(--text-1);
   --color-text-2: var(--text-2);
+  --color-text-3: var(--text-3);
+  --color-text-4: var(--text-4);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #3139FB;
-    --foreground: #f7f3ee;
-    --text-1: var(--background);
-    --text-2: #1c1c19;
-    --text-3: #444654;
+    --background: linear-gradient(to right, #0b1326, rgb(17, 24, 39), rgb(0, 0, 0));
+    --card: #171f33;
+    --hover: #2d3449;
+    --text-1: #a4c9ff;
+    --text-2: #dae2fd;
+    --text-3: #c2c6d6;
+    --text-4: #fff;
   }
 }
 
 body {
   background: var(--background);
+  color: var(--text-2);
+  font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
