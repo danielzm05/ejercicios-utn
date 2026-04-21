@@ -1,5 +1,5 @@
-import { MarkdownViewer } from "./ui/MarkdownViewer";
-import Comment from './ui/comment';
+import { MarkdownViewer } from "../components/shared/MarkdownViewer";
+import Comment from "../components/shared/comment";
 
 export default function Home() {
   return (
@@ -12,8 +12,8 @@ export default function Home() {
 
         <section>
           <p className="font-p text-text-3 font-normal">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur reiciendis culpa nihil eius, assumenda cum sequi optio earum quibusdam
-          eveniet! Quo odio inventore quam fuga numquam possimus iusto quidem molestiae. &
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur reiciendis culpa nihil eius, assumenda cum sequi optio earum
+            quibusdam eveniet! Quo odio inventore quam fuga numquam possimus iusto quidem molestiae. &
           </p>
           <MarkdownViewer content={"$f(x)=x+2$"} />
         </section>

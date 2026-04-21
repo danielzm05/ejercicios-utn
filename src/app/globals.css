@@ -13,20 +13,24 @@
 @theme inline {
   --color-background: var(--background);
   --color-card: var(--card);
-  --font-heading: var(--font-space);
-  --font-p: var(--font-inter);
+  --color-border-1: var(--border-1);
+  --color-border-2: var(--border-2);
   --color-hover: var(--hover);
   --color-text-1: var(--text-1);
   --color-text-2: var(--text-2);
   --color-text-3: var(--text-3);
   --color-text-4: var(--text-4);
+  --font-heading: var(--font-space);
+  --font-p: var(--font-inter);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
     --background: linear-gradient(to right, #0b1326, rgb(17, 24, 39), rgb(0, 0, 0));
     --card: #171f33;
-    --hover: #2d3449;
+    --border-1: #a4c9ff;
+    --border-2: #1a2237;
+    --hover: #343c53;
     --text-1: #a4c9ff;
     --text-2: #dae2fd;
     --text-3: #c2c6d6;

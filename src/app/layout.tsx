@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { inter, spaceGrotesk } from "./ui/fonts";
+import { inter, spaceGrotesk } from "../components/ui/fonts";
 import SideNav from "./SideNav";
 import "./globals.css";
 
