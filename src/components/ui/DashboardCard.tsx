@@ -4,11 +4,12 @@ import { UsersRound, ChartSpline  } from 'lucide-react';
 interface DashboardCardProps {
   title: string;
   children?: React.ReactNode;
+  className?: string;
 }
 
-function DashboardCard({ title, children }: DashboardCardProps  ) {
+function DashboardCard({ title, className,children }: DashboardCardProps  ) {
   return (
-      <article className='bg-card rounded-lg p-5 h-full flex flex-col gap-3 '>
+      <article className={`bg-card border border-border-2 rounded-lg p-5 h-full flex flex-col gap-3 ${className || ''}`}>
         <header className="flex items-center gap-2">
           <UsersRound size={20}  className="text-text-1" />
           <h2 className="font-heading text-text-1 uppercase">{title}</h2>
