@@ -17,7 +17,7 @@ const links = [
 ];
 
 function NavLinks() {
-const pathname = usePathname()
+  const pathname = usePathname();
 
   return (
     <div className="flex gap-3">
@@ -25,11 +25,11 @@ const pathname = usePathname()
         <Link
           href={link.href}
           key={link.name}
-          className={`font-p font-small text-text-4 py-1 px-2 rounded-2xl transition delay-150 duration-250 ease-in-out hover:-translate-y-1 hover:bg-hover ${pathname === link.href ? "bg-hover text-text-1" : "text-text-4"}`}
+          className={`font-p font-small  py-1 px-2 rounded-2xl transition duration-250 delay-100 ease-in-out hover:bg-hover ${pathname === link.href ? "bg-hover text-text-2" : "text-text-3"}`}
         >
           {link.name}
         </Link>
-      ))}    
+      ))}
     </div>
   );
 }

@@ -1,6 +1,6 @@
-import { ChartSpline, UsersRound } from 'lucide-react';
+import { ChartSpline, UsersRound, Star } from 'lucide-react';
 import DashboardCard from '@/components/ui/DashboardCard';
-
+import TeacherRankingCard from '@/components/ui/TeacherRankingCard';
 
 export default function MateriaPage() {
   return (
@@ -11,12 +11,18 @@ export default function MateriaPage() {
         </span>
         <span>
           <h1 className="font-heading text-text-1 text-5xl font-bold">Analisis Matematico I</h1>
-        <span className='text-text-3'>Lorem ipsum olore nihil  laudantium obcaecati nobis magni nesciunt aliquid! Voluptatum iste consectetur rem provident aperiam sapiente tenetur doloremque sit.</span>
+        <span className='text-text-3'>Estudiantes cursando</span>
         </span>
       </header>
 
       <DashboardCard title='Recursos de la comunidad'>
         
+      </DashboardCard>
+
+      <DashboardCard title='Ranking Profesores'>
+        <TeacherRankingCard rank={1} name="Roberto Tenuta" rating={4.5} />
+        <TeacherRankingCard rank={2} name="María García" rating={4.3} />
+        <TeacherRankingCard rank={3} name="Carlos López" rating={4.1} />
       </DashboardCard>
 
     </main>
