@@ -1,6 +1,25 @@
+import { createClient } from "../../../lib/supabase/client";
 import MateriaCard from "../../components/ui/MateriaCard";
 
-export default function MateriasPage() {
+type Materia = {
+  id_materia: number;
+  nombre: string;
+  acronimo: string;
+  color_bg: string;
+  color_border: string;
+}
+
+export default async function MateriasPage() {
+  const supabase = createClient();
+
+  const { data: materias, error } = await supabase
+  .from('materia')
+  .select('*')
+
+  console.log(materias)
+  console.log(error)
+  if (error) return <p>Error al cargar materias</p>
+
   return (
     <main className="h-full flex flex-col gap-10 justify-left px-10">
       <div>
@@ -12,9 +31,12 @@ export default function MateriasPage() {
       </div>
 
       <div className="grid gap-3 grid-cols-3">
-        <MateriaCard acronym="AM1" title="Analisis Matematico I" level={1} />
-        <MateriaCard acronym="AGA" title="Algebra I" level={1} />
+        {materias?.map((materia: Materia) => (
+          <MateriaCard key={materia.id_materia} acronym={materia.acronimo} title={materia.nombre} level={1} colorBg={materia.color_bg} colorBorder={materia.color_border}/>
+        ))}
       </div>
     </main>
   );
 }
+
+
