@@ -23,5 +23,5 @@ interface IconRendererProps {
 export function IconRenderer({ iconName, size = 24, color }: IconRendererProps) {
   const IconComponent = ICON_MAP[iconName] || BookText; 
   
-  return <IconComponent size={size} color={color} />;
+  return <IconComponent size={size} color={color} strokeWidth={1.5} />;
 }

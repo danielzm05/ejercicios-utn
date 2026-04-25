@@ -1,6 +1,7 @@
 import { ICON_MAP } from "@/components/ui/IconRenderer";
-import { createClient } from "../../../lib/supabase/client";
-import MateriaCard from "../../components/ui/MateriaCard";
+import { createClient } from "../../../../lib/supabase/client";
+import MateriaCard from "../../../components/ui/MateriaCard";
+
 
 type Materia = {
   id_materia: number;

@@ -12,7 +12,7 @@ export default function SideNav() {
 
 const links = [
   { name: "Inicio", href: "/" /* , icon: HomeIcon */ },
-  { name: "Materias", href: "/materias" /* , icon: HomeIcon */ },
+  { name: "Especialidad", href: "/especialidad" /* , icon: HomeIcon */ },
   { name: "Dashboard", href: "/dashboard" /* , icon: UserGroupIcon  */ },
 ];
 
