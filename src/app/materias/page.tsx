@@ -1,3 +1,4 @@
+import { ICON_MAP } from "@/components/ui/IconRenderer";
 import { createClient } from "../../../lib/supabase/client";
 import MateriaCard from "../../components/ui/MateriaCard";
 
@@ -7,6 +8,7 @@ type Materia = {
   acronimo: string;
   color_bg: string;
   color_border: string;
+  icon_name: keyof typeof ICON_MAP;
 }
 
 export default async function MateriasPage() {
@@ -16,8 +18,6 @@ export default async function MateriasPage() {
   .from('materia')
   .select('*')
 
-  console.log(materias)
-  console.log(error)
   if (error) return <p>Error al cargar materias</p>
 
   return (
@@ -32,7 +32,7 @@ export default async function MateriasPage() {
 
       <div className="grid gap-3 grid-cols-3">
         {materias?.map((materia: Materia) => (
-          <MateriaCard key={materia.id_materia} acronym={materia.acronimo} title={materia.nombre} level={1} colorBg={materia.color_bg} colorBorder={materia.color_border}/>
+          <MateriaCard key={materia.id_materia} acronym={materia.acronimo} title={materia.nombre} level={1} colorBg={materia.color_bg} colorBorder={materia.color_border} icon_name={materia.icon_name}/>
         ))}
       </div>
     </main>
