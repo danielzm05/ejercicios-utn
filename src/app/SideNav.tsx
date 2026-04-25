@@ -11,9 +11,10 @@ export default function SideNav() {
 }
 
 const links = [
-  { name: "Inicio", href: "/" /* , icon: HomeIcon */ },
-  { name: "Especialidad", href: "/especialidad" /* , icon: HomeIcon */ },
-  { name: "Dashboard", href: "/dashboard" /* , icon: UserGroupIcon  */ },
+  { name: "Inicio", href: "/"  },
+  { name: "Especialidades", href: "/especialidad" },
+  { name: "Preguntas", href: "/preguntas" },
+  { name: "Dashboard", href: "/dashboard"},
 ];
 
 function NavLinks() {

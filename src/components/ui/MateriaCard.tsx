@@ -1,7 +1,7 @@
-import React from "react";
-import { Move3d, ChartSpline } from "lucide-react";
+'use client'
 import Link from "next/link";
 import {IconRenderer, ICON_MAP} from "./IconRenderer";
+import { usePathname } from "next/dist/client/components/navigation";
 interface MateriaCardProps {
   acronym: string;
   title: string;
@@ -12,9 +12,10 @@ interface MateriaCardProps {
 }
 
 function MateriaCard({ acronym, title, level, colorBg, colorBorder, icon_name }: MateriaCardProps) {
-  console.log(colorBg, colorBorder)
+  const pathname = usePathname();
+
   return (
-    <Link href={`/materias/${acronym}`}>
+    <Link href={`${pathname}/${acronym}`}>
       <article className="bg-card rounded-lg p-5 h-full flex flex-col gap-3 border border-border-2 hover:border-border-1 transition-colors delay-150">
         <header className="flex flex-col gap-2">
           <div className={`bg-[${colorBg}] rounded-lg w-10 h-10 p-1 flex justify-center items-center `}>

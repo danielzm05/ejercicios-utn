@@ -6,6 +6,7 @@ type Especialidad = {
   id_especialidad: number;
   nombre: string;
   duracion: number;
+  codigo: string;
   color_bg: string;
   color_border: string;
   icon_name: keyof typeof ICON_MAP;
@@ -36,6 +37,7 @@ export default async function EspecialidadesPage() {
             icon_name={esp.icon_name}
             nombre={esp.nombre}
             duracion={esp.duracion}
+            codigo={esp.codigo}
             color_bg={esp.color_bg}
             color_border={esp.color_border}
           />
