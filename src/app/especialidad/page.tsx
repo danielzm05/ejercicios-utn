@@ -1,6 +1,6 @@
 import { ICON_MAP } from "@/components/ui/IconRenderer";
 import { EspecialidadCard } from "../../components/ui/EspecialidadCard";
-import { createClient } from "../../../lib/supabase/client";
+import { createClient } from "../../../lib/supabase/server";
 
 type Especialidad = {
   id_especialidad: number;
@@ -13,7 +13,7 @@ type Especialidad = {
 }
 
 export default async function EspecialidadesPage() {
-  const supabase = createClient();
+  const supabase = await createClient();
 
   const { data: especialidades, error } = await supabase
   .from('especialidad')
