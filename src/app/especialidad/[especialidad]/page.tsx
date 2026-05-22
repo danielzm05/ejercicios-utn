@@ -1,16 +1,6 @@
-import { ICON_MAP } from "@/components/ui/IconRenderer";
 import { createClient } from "../../../../lib/supabase/client";
 import MateriaCard from "../../../components/ui/MateriaCard";
-
-
-type Materia = {
-  id_materia: number;
-  nombre: string;
-  acronimo: string;
-  color_bg: string;
-  color_border: string;
-  icon_name: keyof typeof ICON_MAP;
-}
+import type { Materia } from "@/types/database";
 
 export default async function MateriasPage() {
   const supabase = createClient();
