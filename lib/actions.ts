@@ -7,6 +7,7 @@ export async function crearEjercicio(data: NuevoEjercicio): Promise<{ id: string
   const { data: result, error } = await supabase
     .from("ejercicio")
     .insert({
+      numero: data.numero,
       consigna: data.consigna,
       respuesta: data.respuesta,
       id_examen: data.id_examen,

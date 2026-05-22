@@ -3,6 +3,7 @@ import { ICON_MAP } from "@/components/ui/IconRenderer";
 export interface Ejercicio {
   id_ejercicio: string;
   created_at: string;
+  numero: string;
   consigna: string;
   respuesta: string;
   video: string | null;
