@@ -1,5 +1,5 @@
 import { createClient } from "./supabase/client";
-import type { NuevoEjercicio, NuevoExamen, Materia, ExamenCategoria, Profesor } from "../src/types/database";
+import type { NuevoEjercicio, NuevoExamen, Materia, ExamenCategoria, Profesor } from "@/types/database";
 
 const supabase = createClient();
 

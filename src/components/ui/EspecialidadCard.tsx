@@ -24,7 +24,7 @@ export function EspecialidadCard({ icon_name, nombre, duracion, codigo, color_bg
         </div>
         
         <div className="flex flex-col">
-          <h2 className="font-heading text-2xl sm:text-3xl text-text-2 font-semibold">{nombre}</h2>
+          <h2 className="font-heading text-lg sm:text-2xl text-text-2 font-semibold">{nombre}</h2>
           <span className="font-p uppercase text-text-3">{codigo} {duracion && `| ${duracion} Años`}</span>
         </div>
       </article>

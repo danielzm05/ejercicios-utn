@@ -9,7 +9,7 @@ import {
   SubmitButton,
   FormFeedback,
 } from "@/components/shared/FormFields";
-import { crearExamen, obtenerMaterias, obtenerCategorias, obtenerProfesores } from "../../../lib/actions";
+import { crearExamen, obtenerMaterias, obtenerCategorias, obtenerProfesores } from "@/lib/actions";
 import type { NuevoExamen, Materia, ExamenCategoria, Profesor } from "@/types/database";
 
 type FormErrors = Partial<Record<keyof NuevoExamen, string>>;

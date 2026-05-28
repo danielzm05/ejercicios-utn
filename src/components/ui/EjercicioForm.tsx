@@ -1,8 +1,8 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { Field, TextareaField, FormSection, SubmitButton, FormFeedback, SelectField } from "../shared/FormFields";
-import { crearEjercicio, obtenerExamenes } from "../../../lib/actions";
+import { Field, TextareaField, FormSection, SubmitButton, FormFeedback, SelectField } from "@/components/shared/FormFields";
+import { crearEjercicio, obtenerExamenes } from "@/lib/actions";
 import type { Examen, NuevoEjercicio } from "@/types/database";
 
 type FormErrors = Partial<Record<keyof NuevoEjercicio, string>>;

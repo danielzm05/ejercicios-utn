@@ -1,5 +1,5 @@
-import { createClient } from "../../../../lib/supabase/client";
-import MateriaCard from "../../../components/ui/MateriaCard";
+import { createClient } from "@/lib/supabase/client";
+import MateriaCard from "@/components/ui/MateriaCard";
 import type { Materia } from "@/types/database";
 
 export default async function MateriasPage() {

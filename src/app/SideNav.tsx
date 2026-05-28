@@ -13,7 +13,6 @@ export default function SideNav() {
 const links = [
   { name: "Inicio", href: "/"  },
   { name: "Especialidades", href: "/especialidad" },
-  { name: "Preguntas", href: "/preguntas" },
   { name: "Dashboard", href: "/dashboard"},
 ];
 
