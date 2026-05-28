@@ -41,7 +41,10 @@ export default async function MateriaLayout({ params, children }: Props) {
         </ul>
       </header>
 
-        {children}
+    <main className="w-full grid md:grid-cols-3 md:grid-rows-2 gap-10">
+      {children}
+    </main>
+        
     </section>
           
   )
