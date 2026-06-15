@@ -1,4 +1,4 @@
-import { createClient } from "@/lib/supabase/client";
+import { createClient } from "@/lib/supabase/server";
 import { ExamenCard } from "@/components/ui/ExamenCard";
 
 type Props = {
