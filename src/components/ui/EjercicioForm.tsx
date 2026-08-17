@@ -30,7 +30,6 @@ function validarEjercicio(data: NuevoEjercicio): FormErrors {
 }
 
 const INITIAL: NuevoEjercicio = {
-  numero: "",
   consigna: "",
   respuesta: "",
   video: "",
@@ -122,16 +121,6 @@ export default function EjercicioForm({ onSuccess }: EjercicioFormProps) {
         />
         
         <FormSection title="Contenido">
-          <TextareaField
-            label="Numero"
-            name="numero"
-            value={form.numero}
-            onChange={handleChange}
-            placeholder="1A"
-            error={errors.numero}
-            required
-            rows={5}
-          />
 
           <TextareaField
             label="Consigna"

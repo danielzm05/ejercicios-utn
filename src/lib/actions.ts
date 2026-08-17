@@ -1,23 +1,15 @@
 import { createClient } from "./supabase/client";
-import type { NuevoEjercicio, NuevoExamen, Materia, ExamenCategoria, Profesor } from "@/types/database";
+import type { NewExercise, NewTest, Materia, ExamenCategoria, Profesor } from "@/types/database";
 
 const supabase = createClient();
 
-export async function crearEjercicio(data: NuevoEjercicio): Promise<{ id: string }> {
-  const { data: result, error } = await supabase
+export async function createExercises(bulk: NewExercise[]) {
+  const { data , error } = await supabase
     .from("ejercicio")
-    .insert({
-      numero: data.numero,
-      consigna: data.consigna,
-      respuesta: data.respuesta,
-      id_examen: data.id_examen,
-      video: data.video || null,
-    })
-    .select("id_ejercicio")
-    .single();
+    .insert(bulk)
 
   if (error) throw new Error(`Error al crear ejercicio: ${error.message}`);
-  return { id: result.id_ejercicio };
+  return data ?? [];
 }
 
 export async function obtenerEjercicios() {
@@ -30,7 +22,7 @@ export async function obtenerEjercicios() {
   return data ?? [];
 }
 
-export async function crearExamen(data: NuevoExamen): Promise<{ id: string }> {
+export async function crearExamen(data: NewTest): Promise<{ id: string }> {
   const { data: result, error } = await supabase
     .from("examen")
     .insert({

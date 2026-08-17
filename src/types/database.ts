@@ -1,16 +1,15 @@
 import { ICON_MAP } from "@/components/ui/IconRenderer";
 
-export interface Ejercicio {
+export interface Exercise {
   id_ejercicio: string;
   created_at: string;
-  numero: string;
   consigna: string;
   respuesta: string;
-  video: string | null;
+  video: string;
   id_examen: string;
 }
 
-export interface Examen {
+export interface Test {
   id_examen: string;
   nombre: string;
   año: number;
@@ -52,6 +51,6 @@ export interface Especialidad {
   duracion: number;
 }
 
-export type NuevoEjercicio = Omit<Ejercicio, "id_ejercicio" | "created_at">;
+export type NewExercise = Omit<Exercise, "created_at">;
 
-export type NuevoExamen = Omit<Examen, "id_examen">;
+export type NewTest = Omit<Test, "id_examen">;
