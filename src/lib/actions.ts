@@ -26,9 +26,8 @@ export async function crearExamen(data: NewTest): Promise<{ id: string }> {
   const { data: result, error } = await supabase
     .from("examen")
     .insert({
-      nombre: data.nombre,
       año: data.año,
-      descripción: data.descripción || null,
+      descripción: data.descripcion ,
       id_materia: data.id_materia,
       id_categoria: data.id_categoria,
       id_profesor: data.id_profesor,

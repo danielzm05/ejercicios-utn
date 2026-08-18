@@ -1,12 +1,13 @@
 @import "tailwindcss";
 
 :root {
-  --background: linear-gradient(to right, #0b1326, rgb(17, 24, 39), rgb(0, 0, 0));
-  --card: #171f33;
+  --background: #111218;
+  --card: #1e212b;
+  --error: #93032e;
   --border-1: #a4c9ff;
   --border-2: #1a2237;
   --hover: #343c53;
-  --text-1: #a4c9ff;
+  --text-1: #fff;
   --text-2: #fff;
   --text-3: #c2c6d6;
 }

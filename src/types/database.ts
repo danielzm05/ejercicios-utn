@@ -11,9 +11,8 @@ export interface Exercise {
 
 export interface Test {
   id_examen: string;
-  nombre: string;
   año: number;
-  descripción: string | null;
+  descripcion: string;
   id_materia: string;
   id_categoria: number;
   id_profesor: string;
