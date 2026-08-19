@@ -25,7 +25,7 @@ function NavLinks() {
         <Link
           href={link.href}
           key={link.name}
-          className={`font-p font-small  py-1 px-2 rounded-2xl transition duration-250 delay-100 ease-in-out hover:bg-hover ${pathname === link.href ? "bg-hover text-text-2" : "text-text-3"}`}
+          className={`font-font1 text-xl py-1 px-2 rounded-2xl transition duration-250 delay-100 ease-in-out hover:bg-hover ${pathname === link.href ? "bg-hover text-text-2" : "text-text-3"}`}
         >
           {link.name}
         </Link>

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { inter, spaceGrotesk } from "@/components/ui/fonts";
+import { pixelFont1} from "@/components/ui/fonts";
 import SideNav from "./SideNav";
 import "./globals.css";
 
@@ -14,7 +14,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="es" className={`${inter.variable} ${spaceGrotesk.variable} antialiased`}>
+    <html lang="es" className={`${pixelFont1.variable} antialiased`}>
       <body className="min-h-screen flex flex-col">
         <SideNav />
         {children}
