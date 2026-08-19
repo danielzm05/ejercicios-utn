@@ -1,18 +1,21 @@
 'use client'
 import { MarkdownViewer } from "@/components/shared/MarkdownViewer";
 import { useState } from "react";
-import { NewExercise } from "@/types/database";
+import { NewExercise, Test } from "@/types/database";
 import { createExercises } from "@/lib/actions";
 import { InputField, TextAreaField } from '../shared/FormComponents';
+interface FormProps {
+  id_examen: string;
+}
 
-export default function ExerciseForm() {
+export default function ExerciseForm({id_examen}:FormProps) {
 
   const INITIAL: NewExercise = {
     id_ejercicio: "",
     consigna: "",
     respuesta: "",
     video: "",
-    id_examen: "", 
+    id_examen: id_examen
   };
 
   const [form, setForm] = useState<NewExercise>(INITIAL);
@@ -33,6 +36,7 @@ export default function ExerciseForm() {
   const handleCreate = async (bulk:NewExercise[]) => {
     try {
       const data = await createExercises(bulk);
+      setBulk([]);
     } catch (err) {
       setError(err instanceof Error ? err.message : "Error desconocido");
     } 
@@ -51,11 +55,6 @@ export default function ExerciseForm() {
       <section className="grid grid-cols-3 gap-5 w-full bg-card rounded-lg p-5">
         <form onSubmit={handleSubmit} className="flex flex-col gap-3 p-3">
           <h1 className="text-xl font-bold">Nuevo Ejercicio</h1>
-
-          <label htmlFor="id_examen">
-            ID Examen:
-            <input type="text" name="id_examen" value={form.id_examen} id="id_examen" onChange={handleChange} className="bg-gray-900"  />
-          </label>
           <TextAreaField label={"Consigna:"} rows={4} id="consigna" name="consigna" value={form.consigna} onChange={handleChange} required  />
             <InputField label={"Respuesta:"} type="text" name="respuesta" value={form.respuesta} id="respuesta" onChange={handleChange} />
           <InputField label={"Link Video:"} type="text" name="video" value={form.video} id="video" onChange={handleChange} placeholder="https://youtube.com/watch?v=..." />

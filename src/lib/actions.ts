@@ -1,5 +1,5 @@
 import { createClient } from "./supabase/client";
-import type { NewExercise, NewTest, Materia, ExamenCategoria, Profesor } from "@/types/database";
+import type { NewExercise, Materia, ExamenCategoria, Profesor, NewTest } from "@/types/database";
 
 const supabase = createClient();
 
@@ -12,7 +12,7 @@ export async function createExercises(bulk: NewExercise[]) {
   return data ?? [];
 }
 
-export async function obtenerEjercicios() {
+export async function getExercises() {
   const { data, error } = await supabase
     .from("ejercicio")
     .select("*")
@@ -22,17 +22,17 @@ export async function obtenerEjercicios() {
   return data ?? [];
 }
 
-export async function crearExamen(data: NewTest): Promise<{ id: string }> {
+export async function createExam (data: NewTest): Promise<{ id: string }> {
   const { data: result, error } = await supabase
     .from("examen")
     .insert({
-      año: data.año,
-      descripción: data.descripcion ,
+      año: Number(data.año),
+      descripcion: data.descripcion,
       id_materia: data.id_materia,
-      id_categoria: data.id_categoria,
-      id_profesor: data.id_profesor,
+      id_categoria: Number(data.id_categoria),
+      id_profesor: data.id_profesor || null,
     })
-    .select("id_examen")
+    .select()
     .single();
 
   if (error) throw new Error(`Error al crear examen: ${error.message}`);
