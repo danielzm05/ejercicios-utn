@@ -5,8 +5,9 @@ export default async function page({ params }: { params: { examenId: string } })
   const { examenId } = await params;
 
   const supabase = await createClient();
-  const { data: examen, error } = await supabase.from("examen").select("*, ejercicio(*), profesor(*)").eq("id_examen", examenId).single();
+  const { data: examen, error } = await supabase.from("examen").select("*, ejercicio(*), examen_categoria(*), profesor(*)").eq("id_examen", examenId).single();
 
+  console.log(examen)
   if (error) {
     console.error("Error al cargar el examen:", error);
     return <p>Error al cargar el examen</p>;
@@ -21,17 +22,18 @@ export default async function page({ params }: { params: { examenId: string } })
   return (
     <main className="h-full flex flex-col gap-10 justify-left p-20 ">
       {examen && (
-        <section className="flex flex-col gap-3 border rounded-lg p-10 bg-card">
-          <h1 className="font-heading text-text-1 text-5xl font-bold">{examen.nombre}</h1>
-          <p className="text-text-3">{examen.descripcion}</p>
-          {examen.profesor && <p className="text-text-2 font-semibold">Prof. {examen.profesor.nombre}</p>}
-
-          <div className="flex flex-col border-t ">
-            {examen.ejercicio.map((ejercicio: Ejercicio) => (
-              <EjercicioLink key={ejercicio.id_ejercicio} id_ejercicio={ejercicio.id_ejercicio} consigna={ejercicio.consigna} id_examen={examen.id_examen} />
+        <article className="flex flex-col bg-card rounded-xl border-3 border-border1 shadow-bs1">
+          <header className="flex justify-center flex-col min-h-25 rounded-t-xl font-font1 text-t1 text-3xl px-5 py-1 border-t-6 border-t-amber-50/50 border-b-6 border-b-black/50" style={{background: examen.examen_categoria.color}}>
+            <span >{examen.descripcion} {examen.año}</span>
+            {examen.profesor && <span className="text-t2 text-xl"> Prof. {examen.profesor.nombre}</span>}
+          </header>
+          
+          <div className="flex flex-col">
+            {examen.ejercicio.map((ejercicio: Ejercicio, index: number) => (
+              <EjercicioLink key={ejercicio.id_ejercicio} id_ejercicio={ejercicio.id_ejercicio} consigna={ejercicio.consigna} id_examen={examen.id_examen} index={index+1} />
             ))}
           </div>
-        </section>
+        </article>
       )}
     </main>
   );

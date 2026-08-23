@@ -16,14 +16,14 @@ function MateriaCard({ acronym, title, level, colorBg, colorBorder, icon_name }:
 
   return (
     <Link href={`${pathname}/${acronym}`}>
-      <article className="bg-card rounded-lg p-5 h-full flex flex-col gap-3 border border-border-2 hover:border-border-1 transition-colors delay-150">
-        <header className="flex flex-col gap-2">
-          <div className={`bg-[${colorBg}] rounded-lg w-10 h-10 p-1 flex justify-center items-center `}>
+      <article className="bg-card rounded-sm p-4 h-full flex items-center gap-4 border-2 border-border1 shadow-bs1">
+          <span className={`w-10 h-10 p-1 flex justify-center items-center outline-2 border-t-2 border-l-2 border-black`} style={{backgroundColor: colorBg, outlineColor: colorBorder}}>
             <IconRenderer iconName={icon_name} size={38} color={colorBorder} />
-          </div>
-          <h2 className="font-heading text-xl text-text-1 font-semibold">{title}</h2>
-          <span className="font-p uppercase text-text-3">Nivel {level}</span>
-        </header>
+          </span>
+          <span >
+            <h2 className="font-font1 text-xl sm:text-2xl text-t1">{title}</h2>
+            <span className="font-font1 text-lg sm:text-xl text-t2">Nivel {level}</span>
+          </span>
       </article>
     </Link>
   );

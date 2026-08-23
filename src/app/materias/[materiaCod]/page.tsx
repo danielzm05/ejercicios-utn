@@ -10,7 +10,7 @@ export default async function MateriaPage({ params }: Props) {
 
   const supabase = await createClient();
 
-  const { data: examen, error } = await supabase.from("examen").select("*, materia(*), examen_categoria(*)").eq("materia.acronimo", materiaCod);
+  const { data: examen, error } = await supabase.from("examen").select("*, materia(*), examen_categoria(*), profesor(*)").eq("materia.acronimo", materiaCod);
 
   if (error) {
     return <p>Error al cargar la materia</p>;
@@ -22,7 +22,7 @@ export default async function MateriaPage({ params }: Props) {
         <ExamenCard
           key={examen.id_examen}
           id={examen.id_examen}
-          nombre={examen.nombre}
+          descripcion={examen.descripcion}
           año={examen.año}
           profesor={examen.profesor}
           examen_categoria={examen.examen_categoria}

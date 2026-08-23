@@ -3,12 +3,13 @@
 :root {
   --background: #111218;
   --card: #1e212b;
+  --card2: #181b23;
   --primary: #623CEA;
 
   --error: #93032e;
   --success: #00a676;
   --border1: #545C78;
-  --border2: #1a2237;
+  --border2: #6B7698;
   --hover: #343c53;
   --t1: #fff;
   --t2: #9098B2;
@@ -16,9 +17,10 @@
 
 @theme inline {
   --text-shadow-h: 2px 2px 0 #93032e; 
-  --shadow-bs1: 5px 5px #000000;
+  --shadow-bs1: 6px 6px #000000;
   --color-background: var(--background);
   --color-card: var(--card);
+  --color-card2: var(--card2);
   --color-primary: var(--primary);
   --color-border1: var(--border1);
   --color-border2: var(--border2);

@@ -15,10 +15,16 @@ interface Ejercicio {
 }
 
 interface Examen {
-  id_examen: string;
-  nombre: string;
-  descripcion: string | null;
-  id_materia: string;
+  id: string;
+  descripcion: string;
+  año: number;
+  profesor?: {
+    nombre: string;
+  };
+  examen_categoria: {
+    nombre: string;
+    color: string;
+  };
   ejercicio: Ejercicio[];
 }
 
@@ -30,7 +36,7 @@ export default async function Page({ params }: PageProps) {
   const { examenId, ejercicioId } = await params;
   const supabase = await createClient();
 
-  const { data: examen, error } = await supabase.from("examen").select("*, ejercicio(*)").eq("id_examen", examenId).single<Examen>();
+  const { data: examen, error } = await supabase.from("examen").select("*, examen_categoria(*), ejercicio(*)").eq("id_examen", examenId).single<Examen>();
 
   if (error || !examen) {
     return <p>Error al cargar el ejercicio</p>;
@@ -48,11 +54,14 @@ export default async function Page({ params }: PageProps) {
 
   return (
     <main className="h-full flex flex-col gap-10 justify-left p-20">
-      <article className="flex flex-col gap-3 border rounded-lg p-10 bg-card">
-        <Link href={`/${examenId}`} className="text-text-1 text-sm font-heading hover:underline">
-          {examen.nombre}
-        </Link>
-
+      <article className="flex flex-col gap-3 bg-card rounded-sm border-2 border-border1 shadow-bs1 sm:text-2xl">
+        <header className="px-5 pt-5">
+          <Link href={`/${examenId}`} className="text-t2 text-2xl font-font1 hover:underline">
+            {examen.examen_categoria.nombre} {examen.año}
+          </Link>
+        </header>
+        <section className="px-5 py-7">
+      
         <MarkdownViewer content={ejercicio.consigna} />
 
         {ejercicio.respuesta && (
@@ -63,10 +72,11 @@ export default async function Page({ params }: PageProps) {
             </div>
           </details>
         )}
+        </section>
 
-        <footer className="flex justify-between items-center border-t pt-4 mt-4">
+        <footer className="flex justify-between items-center outline-2 outline-border1 border-t-3 border-border2">
           {prevEjercicio ? (
-            <Link href={`/${examenId}/${prevEjercicio.id_ejercicio}`} className="flex items-center gap-1 text-text-2 hover:underline">
+            <Link href={`/${examenId}/${prevEjercicio.id_ejercicio}`} className="flex items-center gap-1 text-t2 font-font1 hover:underline">
               <ChevronLeft size={18} />
               Ejercicio anterior
             </Link>
@@ -74,12 +84,12 @@ export default async function Page({ params }: PageProps) {
             <span />
           )}
 
-          <span className="text-text-3 text-sm">
+          <span className="text-t2 text-xl font-font1">
             {ejercicioIndex + 1} / {examen.ejercicio.length}
           </span>
 
           {nextEjercicio ? (
-            <Link href={`/${examenId}/${nextEjercicio.id_ejercicio}`} className="flex items-center gap-1 text-text-2 hover:underline">
+            <Link href={`/${examenId}/${nextEjercicio.id_ejercicio}`} className="px-5 py-3 flex items-center gap-1 text-t2 font-font1 hover:underline border-l-2 border-border2">
               Siguiente ejercicio
               <ChevronRight size={18} />
             </Link>

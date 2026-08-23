@@ -3,33 +3,31 @@ import Link from "next/link";
 
 interface ExamenCardProps {
   id: string;
-  nombre: string;
+  descripcion: string;
   año: number;
   profesor?: {
     nombre: string;
   };
   examen_categoria: {
+    nombre: string;
     color: string;
   };
 }
 
-export function ExamenCard({ id, nombre, año, profesor, examen_categoria }: ExamenCardProps) {
+export function ExamenCard({ id, descripcion, año, profesor, examen_categoria }: ExamenCardProps) {
 
   return (
     <Link href={`/${id}`} className="w-full">
-      <article className="rounded-r-lg transition-all duration-300 transform-gpu flex gap-8 relative md:border-r-[1.2px] border-t-[1.2px] border-white/10 bg-linear-to-br from-blue-300/1 to-blue-300/4 hover:from-blue-300/2 hover:to-blue-300/10 h-full delay-150">
-        <div className="w-0.5" style={{ backgroundColor: examen_categoria.color }}></div>
-        <div className="flex flex-col gap-3 py-8 ">
-          <h2 className="font-heading text-lg sm:text-xl text-text-2">{nombre}</h2>
+      <article className="flex flex-col rounded-sm bg-card h-full shadow-bs1 py-3 px-5 outline-2 outline-border1 border-l-4" style={{borderColor: examen_categoria.color}}>
+          <h2 className="font-font1 text-xl sm:text-2xl text-t1">{examen_categoria.nombre} {año}</h2>
+          <p className="font-font1 text-lg sm:text-xl text-t2">{descripcion}</p>
 
           {profesor && (
-            <p className="flex items-center gap-2 font-p uppercase text-text-3">
-              <User size={16} />
+            <p className="flex items-center gap-1 font-font1 text-lg sm:text-xl text-t2">
+              <User size={14}/>
               {profesor.nombre}
             </p>
           )}
-          <p className="flex items-center gap-2 font-p uppercase text-text-3">{año}</p>
-        </div>
       </article>
     </Link>
   )
