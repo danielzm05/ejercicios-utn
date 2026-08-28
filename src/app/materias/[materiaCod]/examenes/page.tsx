@@ -1,5 +1,6 @@
 import { ExamenCard } from "@/components/ui/ExamenCard";
 import { createClient } from "@/lib/supabase/client";
+import { Test } from "@/types/database";
 
 type Props = {
   params: Promise<{ materiaCod: string }>;
@@ -18,11 +19,11 @@ export default async function MateriaPage({ params }: Props) {
 
   return (
     <>
-      {examen?.map((ex: any) => (
+      {examen?.map((ex: Test) => (
         <ExamenCard
           key={ex.id_examen}
-          id={ex.id}
-          nombre={ex.nombre}
+          id={ex.id_examen}
+          descripcion={ex.descripcion}
           año={ex.año}
           profesor={ex.profesor}
           examen_categoria={ex.examen_categoria}

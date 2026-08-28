@@ -1,6 +1,5 @@
 import { User } from "lucide-react";
 import Link from "next/link";
-
 interface ExamenCardProps {
   id: string;
   descripcion: string;

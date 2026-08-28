@@ -9,15 +9,6 @@ export interface Exercise {
   id_examen: string;
 }
 
-export interface Test {
-  id_examen: string;
-  año: number;
-  descripcion: string;
-  id_materia: string;
-  id_categoria: number;
-  id_profesor: string;
-}
-
 export interface Materia {
   id_materia: string;
   nombre: string;
@@ -32,7 +23,20 @@ export interface Materia {
 export interface ExamenCategoria {
   id_exam_categoria: number;
   nombre: string;
+  color: string;
 }
+
+export interface Test {
+  id_examen: string;
+  año: number;
+  descripcion: string;
+  id_materia: string;
+  id_categoria: number;
+  id_profesor: string;
+  examen_categoria: ExamenCategoria
+  profesor: Profesor;
+}
+
 
 export interface Profesor {
   id_profesor: string;

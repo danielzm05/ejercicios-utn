@@ -75,6 +75,10 @@ export default async function Page({ params }: PageProps) {
         </section>
 
         <footer className="flex justify-between items-center outline-2 outline-border1 border-t-3 border-border2">
+          <span className="text-t2 text-xl font-font1">
+            {ejercicioIndex + 1} / {examen.ejercicio.length}
+          </span>
+
           {prevEjercicio ? (
             <Link href={`/${examenId}/${prevEjercicio.id_ejercicio}`} className="flex items-center gap-1 text-t2 font-font1 hover:underline">
               <ChevronLeft size={18} />
@@ -83,10 +87,6 @@ export default async function Page({ params }: PageProps) {
           ) : (
             <span />
           )}
-
-          <span className="text-t2 text-xl font-font1">
-            {ejercicioIndex + 1} / {examen.ejercicio.length}
-          </span>
 
           {nextEjercicio ? (
             <Link href={`/${examenId}/${nextEjercicio.id_ejercicio}`} className="px-5 py-3 flex items-center gap-1 text-t2 font-font1 hover:underline border-l-2 border-border2">

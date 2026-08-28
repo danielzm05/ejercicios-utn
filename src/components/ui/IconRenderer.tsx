@@ -1,17 +1,36 @@
-import { Code, Factory,  Move3d, CircuitBoard, Zap, FlaskConical, BookText, Ship, HardHat, Spool, Bold} from 'lucide-react';
+import { Code, BookText, User2, CheckCircle2, Cpu, ChartSpline, Layers, MoveUpRight, Layout, Briefcase, Users, Brain, Activity, TrendingUp, MonitorCog, Scale, Terminal, Move3d,  EqualApproximately, FileCode,  BarChart2, LineChart, Calculator, Languages, Binary, Network, Zap, Laptop, ShieldCheck, Database, Radio} from 'lucide-react';
 
 export const ICON_MAP = {
-  move3d: Move3d,
-  factory: Factory,
-  circuitBoard: CircuitBoard,
-  zap: Zap,
-  flaskConical: FlaskConical,
-  code: Code,
-  bookText: BookText,
-  ship: Ship,
-  hardHat: HardHat,
-  spool: Spool,
-  bold: Bold,
+  BookText,
+  User2,
+  CheckCircle2, 
+  ChartSpline, 
+  Cpu,
+  Layers, 
+  MoveUpRight, 
+  Layout, 
+  Network, 
+  Briefcase, 
+  Users, 
+  Brain, 
+  Activity, 
+  TrendingUp, 
+  MonitorCog, 
+  Scale, 
+  Terminal, 
+  Move3d, 
+  EqualApproximately, 
+  FileCode, 
+  BarChart2, 
+  LineChart, 
+  Calculator, 
+  Languages, 
+  Binary, 
+  Zap, 
+  Laptop, 
+  ShieldCheck, 
+  Database, 
+  Radio
 };
 
 interface IconRendererProps {
