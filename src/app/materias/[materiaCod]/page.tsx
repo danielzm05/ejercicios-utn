@@ -7,11 +7,12 @@ type Props = {
 
 export default async function MateriaPage({ params }: Props) {
   const { materiaCod } = await params;
+  
 
   const supabase = await createClient();
 
-  const { data: examen, error } = await supabase.from("examen").select("*, materia(*), examen_categoria(*), profesor(*)").eq("materia.acronimo", materiaCod);
-
+  const { data: examen, error } = await supabase.from("examen").select("*, materia!inner(acronimo), examen_categoria(*), profesor(*)").filter('materia.acronimo', 'eq', materiaCod);
+  console.log(examen);
   if (error) {
     return <p>Error al cargar la materia</p>;
   }

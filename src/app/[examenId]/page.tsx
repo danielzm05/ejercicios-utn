@@ -19,7 +19,7 @@ export default async function page({ params }: { params: { examenId: string } })
   }
 
   return (
-    <main className="h-full flex flex-col gap-10 justify-left p-20 ">
+    <main className="h-full flex flex-col gap-10 justify-left p-8 sm:p-20 ">
       {examen && (
         <article className="flex flex-col bg-card rounded-xl border-3 border-border1 shadow-bs1">
           <header className="flex justify-center flex-col min-h-25 rounded-t-xl font-font1 text-t1 text-3xl px-5 py-1 border-t-6 border-t-amber-50/50 border-b-6 border-b-black/50" style={{background: examen.examen_categoria.color}}>

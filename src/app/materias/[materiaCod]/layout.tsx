@@ -1,5 +1,6 @@
 import { createClient } from '@/lib/supabase/server'; 
 import { ChartSpline } from 'lucide-react';
+import { IconRenderer } from '../../../components/ui/IconRenderer';
 
 
 type Props = {
@@ -27,7 +28,7 @@ export default async function MateriaLayout({ params, children }: Props) {
       <header className='flex flex-col gap-5'>
         <div className='flex gap-7 items-center'>
           <span className='grid content-center bg-card p-3 rounded-xs h-full w-auto outline-3 shadow-bs1' style={{color: materia.color_border}}>
-            <ChartSpline size={48} />
+            <IconRenderer iconName={materia.icon_name} size={48}/>
           </span>
           <span>
             <h1 className="font-font1 text-t1 text-3xl sm:text-5xl">{materia.nombre}</h1>

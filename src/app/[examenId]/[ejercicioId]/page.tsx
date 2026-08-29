@@ -53,56 +53,43 @@ export default async function Page({ params }: PageProps) {
   const nextEjercicio = examen.ejercicio[ejercicioIndex + 1] ?? null;
 
   return (
-    <main className="h-full flex flex-col gap-10 justify-left p-20">
-      <article className="flex flex-col gap-3 bg-card rounded-sm border-2 border-border1 shadow-bs1 sm:text-2xl">
-        <header className="px-5 pt-5">
-          <Link href={`/${examenId}`} className="text-t2 text-2xl font-font1 hover:underline">
-            {examen.examen_categoria.nombre} {examen.año}
-          </Link>
+    <main className="h-full flex flex-col gap-10 justify-left p-8 sm:p-20">
+      <article className="flex flex-col gap-3 bg-card rounded-xl border-2 border-border1 shadow-bs1 sm:text-2xl">
+        <header className="font-font1">
+          <div className="rounded-t-xl font-font1 text-t1 text-3xl px-5 py-1 border-t-6 border-t-amber-50/50 border-b-6 border-b-black/50" style={{backgroundColor: examen.examen_categoria.color}}>
+            <Link href={`/${examenId}`} className="text-t1 hover:underline">
+              {examen.examen_categoria.nombre} {examen.año}
+            </Link>
+          </div>
+          <p className="text-2xl bg-card2 border-b-2 border-border1 text-t2 px-5 ">Ejercicio {ejercicioIndex+1}</p>
         </header>
-        <section className="px-5 py-7">
+        <section className="flex flex-col gap-5 p-5 text-base">
       
-        <MarkdownViewer content={ejercicio.consigna} />
+          <MarkdownViewer content={ejercicio.consigna} />
 
-        {ejercicio.respuesta && (
-          <details className="mt-4">
-            <summary className="cursor-pointer text-text-2 font-semibold select-none">Ver respuesta</summary>
-            <div className="mt-2 border-t pt-4">
-              <MarkdownViewer content={ejercicio.respuesta} />
-            </div>
-          </details>
-        )}
+          {ejercicio.respuesta && (
+            <details className="flex flex-col gap-3">
+              <summary className="text-2xl cursor-pointer text-t1 font-font1 select-none">Ver respuesta</summary>
+              <div className="text-t2">
+                <MarkdownViewer content={ejercicio.respuesta} />
+              </div>
+            </details>
+          )}
         </section>
 
-        <footer className="flex justify-between items-center outline-2 outline-border1 border-t-3 border-border2">
-          <span className="text-t2 text-xl font-font1">
-            {ejercicioIndex + 1} / {examen.ejercicio.length}
-          </span>
+        <footer className="flex justify-end items-center">
 
-          {prevEjercicio ? (
-            <Link href={`/${examenId}/${prevEjercicio.id_ejercicio}`} className="flex items-center gap-1 text-t2 font-font1 hover:underline">
-              <ChevronLeft size={18} />
-              Ejercicio anterior
-            </Link>
-          ) : (
-            <span />
-          )}
+          {prevEjercicio &&
+            <Link href={`/${examenId}/${prevEjercicio.id_ejercicio}`} title={`Ejercicio ${ejercicioIndex}`} className="p-3 text-t2 ">
+              <ChevronLeft size={22} />
+            </Link>}
 
-          {nextEjercicio ? (
-            <Link href={`/${examenId}/${nextEjercicio.id_ejercicio}`} className="px-5 py-3 flex items-center gap-1 text-t2 font-font1 hover:underline border-l-2 border-border2">
-              Siguiente ejercicio
-              <ChevronRight size={18} />
+
+            <Link href={`/${examenId}/${nextEjercicio?.id_ejercicio}`} title={`Ejercicio ${ejercicioIndex+2}`} className={`p-3 text-t2 border-border2 ${nextEjercicio ? 'visible' : 'invisible'}`}>
+              <ChevronRight size={22} />
             </Link>
-          ) : (
-            <span />
-          )}
         </footer>
       </article>
-
-      <section className="flex flex-col gap-4">
-        <Comment />
-        <Comment />
-      </section>
     </main>
   );
 }
