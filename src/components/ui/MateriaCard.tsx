@@ -15,7 +15,7 @@ function MateriaCard({ acronym, title, level, colorBg, colorBorder, icon_name }:
   const pathname = usePathname();
 
   return (
-    <Link href={`${pathname}/${acronym}`}>
+    <Link href={`${pathname}/${acronym}/examenes`}>
       <article className="bg-card rounded-sm p-4 h-full flex items-center gap-4 border-2 border-border1 shadow-bs1">
           <span className={`w-12 h-12 p-1 flex justify-center items-center outline-2 rounded-xs border-t-2 border-l-2 border-black`} style={{backgroundColor: colorBg, outlineColor: colorBorder}}>
             <IconRenderer iconName={icon_name} size={40} color={colorBorder} />

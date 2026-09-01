@@ -1,7 +1,7 @@
 import { MarkdownViewer } from "../components/shared/MarkdownViewer";
 import Comment from "../components/shared/comment";
 
-export default function Home() {
+export default function Page() {
   return (
     <main className="h-full flex justify-center items-center px-10">
       <article className="bg-card rounded-lg p-7 h-full flex flex-col gap-4 ">

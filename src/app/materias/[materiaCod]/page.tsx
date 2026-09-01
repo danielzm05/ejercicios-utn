@@ -5,21 +5,22 @@ type Props = {
   params: Promise<{ materiaCod: string }>;
 };
 
-export default async function MateriaPage({ params }: Props) {
-  const { materiaCod } = await params;
+export default function Page({ params }: Props) {
+  /* const { materiaCod } = await params;
   
 
   const supabase = await createClient();
 
   const { data: examen, error } = await supabase.from("examen").select("*, materia!inner(acronimo), examen_categoria(*), profesor(*)").filter('materia.acronimo', 'eq', materiaCod);
-  console.log(examen);
+  
   if (error) {
     return <p>Error al cargar la materia</p>;
-  }
+  } */
 
   return (
     <>
-      {examen.map((examen) => (
+    <h1>Examenes</h1>
+      {/* {examen.map((examen) => (
         <ExamenCard
           key={examen.id_examen}
           id={examen.id_examen}
@@ -28,7 +29,7 @@ export default async function MateriaPage({ params }: Props) {
           profesor={examen.profesor}
           examen_categoria={examen.examen_categoria}
         />
-      ))}
+      ))} */}
     </>
   );
 }

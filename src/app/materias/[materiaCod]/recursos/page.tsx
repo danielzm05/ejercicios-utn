@@ -2,7 +2,7 @@ export default function Page() {
   
   return (
     <>
-      <h1>Examen</h1>
+      <h1>Recursos</h1>
     </>
   )
 }
