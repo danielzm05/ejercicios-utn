@@ -1,9 +1,11 @@
 "use client";
 import { createClient } from "@/lib/supabase/client";
-import { ICON_MAP, IconRenderer } from "../../../components/ui/IconRenderer";
+import { IconRenderer } from "../../../components/ui/IconRenderer";
 import { useEffect, useState } from "react";
 import { Materia } from "../../../types/database";
 import * as React from "react";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 type Props = {
   children: React.ReactNode;
@@ -13,6 +15,7 @@ type Props = {
 export default function MateriaLayout({ params, children }: Props) {
   const [materia, setMateria] = useState<Materia | null>(null);
 
+  const pathname = usePathname();
   const supabase = createClient();
   const { materiaCod } = React.use(params);
 
@@ -29,8 +32,12 @@ export default function MateriaLayout({ params, children }: Props) {
     }
 
     if (materiaCod) getMateria(materiaCod);
-    console.log('hola');
   }, [materiaCod]);
+
+  const tabs = [
+    { label: "Exámenes", href: `/materias/${materiaCod}/examenes` },
+    { label: "Recursos", href: `/materias/${materiaCod}/recursos` },
+  ];
 
   return (
     <section className="h-full flex flex-col gap-10 justify-left p-5 sm:p-10">
@@ -45,13 +52,18 @@ export default function MateriaLayout({ params, children }: Props) {
           </span>
         </div>
 
-        <ul className="flex gap-10 font-font1">
-          <li className="font-heading text-text-1 uppercase hover:underline">Guías y Examenes</li>
-          <li className="font-heading text-text-1 uppercase hover:underline">Recursos de la comunidad</li>
-        </ul>
+        <div className="flex gap-10 *:font-font1 *:text-xl *:uppercase *:hover:underline">
+          {tabs.map((t) => {
+
+          const isActive = pathname === t.href;
+
+          return(
+            <Link  key={t.href} href={t.href} replace  style={{color: `${isActive ? materia?.color_border : 'var(--t1)'}`}}>{t.label}</Link>
+          )})}
+        </div>
       </header>
 
-      <main className="w-full grid grid-cols-1 auto-rows-[100px] sm:auto-rows-[150px] sm:grid-cols-3  gap-5">{children}</main>
+      <>{children}</>
     </section>
   );
 }

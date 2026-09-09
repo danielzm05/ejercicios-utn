@@ -30,12 +30,12 @@
   --color-t1: var(--t1);
   --color-t2: var(--t2);
   --font-font1: var(--font-pixel1);
-  --font-font2: var(--font-pixel2);
+  --font-font2: var(--font-mono);
 }
 
 
 body {
   background: var(--background);
   color: var(--t1);
-  font-family: var(--font-pixel1) var(--font-pixel2), sans-serif;
+  font-family: var(--font-pixel1) var(--font-mono), sans-serif;
 }

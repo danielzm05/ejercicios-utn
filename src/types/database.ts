@@ -20,6 +20,25 @@ export interface Materia {
   id_especialidad: string;
 }
 
+export interface RecursoCategoria {
+  id_categoria: string;
+  nombre: string;
+  color_bg: string;
+  color_border: string;
+}
+
+export interface Recurso{
+  id_recurso: string;
+  created_at : string;
+  nombre: string;
+  descripcion: string;
+  link: string;
+  id_materia: string;
+  img_url: string;
+  id_categoria: string;
+  recurso_categoria: RecursoCategoria;
+  
+}
 export interface ExamenCategoria {
   id_exam_categoria: number;
   nombre: string;
@@ -37,13 +56,11 @@ export interface Test {
   profesor: Profesor;
 }
 
-
 export interface Profesor {
   id_profesor: string;
   created_at: string;
   nombre: string;
 }
-
 export interface Especialidad {
   id_especialidad: string;
   nombre: string;
