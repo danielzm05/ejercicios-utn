@@ -40,7 +40,7 @@ export default function MateriaLayout({ params, children }: Props) {
   ];
 
   return (
-    <section className="h-full flex flex-col gap-10 justify-left p-5 sm:p-10">
+    <section className="h-full flex flex-col gap-10 justify-left pt-20 px-5 sm:px-10">
       <header className="flex flex-col gap-5">
         <div className="flex gap-7 items-center">
           <span className="grid content-center bg-card p-3 rounded-xs h-full w-auto outline-3 shadow-bs1" style={{ color: materia?.color_border }}>

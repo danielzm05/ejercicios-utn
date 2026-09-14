@@ -12,8 +12,8 @@ export default async function Page() {
   if (error) return <p>Error al cargar materias</p>
 
   return (
-    <main className="h-full flex flex-col gap-10 justify-left px-10">
-      <h1 className="font-font1 text-text-1 text-6xl text-shadow-h">Materias</h1>
+    <main className="h-full flex flex-col gap-10 justify-left py-20 px-10">
+      <h1 className="font-font1 text-text-1 text-6xl">Materias</h1>
 
       <div className="grid gap-3 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 auto-rows-fr">
         {materias?.map((materia: Materia) => (

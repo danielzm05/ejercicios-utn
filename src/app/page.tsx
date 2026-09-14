@@ -1,28 +1,13 @@
-import { MarkdownViewer } from "../components/shared/MarkdownViewer";
-import Comment from "../components/shared/comment";
-
 export default function Page() {
   return (
-    <main className="h-full flex justify-center items-center px-10">
-      <article className="bg-card rounded-lg p-7 h-full flex flex-col gap-4 ">
-        <header>
-          <h1 className="font-heading text-3xl text-text-1 font-bold">Primer Parcial 2025</h1>
-          <h2 className="font-heading text-2xl text-text-3 font-medium =">Ejercicio 5</h2>
-        </header>
-
-        <section>
-          <p className="font-p text-text-3 font-normal">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur reiciendis culpa nihil eius, assumenda cum sequi optio earum
-            quibusdam eveniet! Quo odio inventore quam fuga numquam possimus iusto quidem molestiae. &
-          </p>
-          <MarkdownViewer content={"$f(x)=x+2$"} />
-        </section>
-
-        <footer className="flex flex-col gap-4">
-          <Comment />
-          <Comment />
-        </footer>
-      </article>
+    <main className="h-full flex justify-center items-center">
+      <section className="flex flex-col justify-between items-center h-screen w-full bg-no-repeat bg-cover bg-center pt-30 pb-20" style={{backgroundImage: `url('/background.png')` }}>
+        <hgroup className="flex flex-col justify-center items-center h-fit">
+          <h1 className="uppercase text-7xl sm:text-8xl font-font1 text-shadow-h2 text-shadow-black">repositorio-utn</h1>
+          <p className="font-font2 text-center text-xl">Buscamos crear el repositorio de la utn con <br /> examenes para ayudarte a estudiar </p>
+        </hgroup>
+        <a href="mailto:someone@example.com" className="text-3xl  font-font1 uppercase"> Aportar</a>
+      </section>
     </main>
   );
 }

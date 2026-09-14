@@ -53,15 +53,17 @@ export default async function Page({ params }: PageProps) {
   const nextEjercicio = examen.ejercicio[ejercicioIndex + 1] ?? null;
 
   return (
-    <main className="h-full flex flex-col gap-10 justify-left p-8 sm:p-20">
+    <main className="h-full flex flex-col gap-10 justify-left py-20 px-8 sm:px-20">
       <article className="flex flex-col gap-3 bg-card rounded-xl border-2 border-border1 shadow-bs1 sm:text-2xl">
         <header className="font-font1">
           <div className="rounded-t-xl font-font1 text-t1 text-3xl px-5 py-1 border-t-6 border-t-amber-50/50 border-b-6 border-b-black/50" style={{backgroundColor: examen.examen_categoria.color}}>
-            <Link href={`/${examenId}`} className="text-t1 hover:underline">
+            <p className="text-t1">Ejercicio {ejercicioIndex+1}</p>
+          </div>
+          <div className="bg-card2 border-b-2 border-border1 px-5 hover:underline">
+            <Link href={`/${examenId}`} className="text-2xl text-t2">
               {examen.examen_categoria.nombre} {examen.año}
             </Link>
           </div>
-          <p className="text-2xl bg-card2 border-b-2 border-border1 text-t2 px-5 ">Ejercicio {ejercicioIndex+1}</p>
         </header>
         <section className="flex flex-col gap-5 p-5 text-base">
       

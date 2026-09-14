@@ -16,7 +16,8 @@
 }
 
 @theme inline {
-  --text-shadow-h: 2px 2px 0 #93032e; 
+  --text-shadow-h1: 2px 2px 0; 
+  --text-shadow-h2: 5px 5px 0;
   --shadow-bs1: 6px 6px #000000;
   --color-background: var(--background);
   --color-card: var(--card);

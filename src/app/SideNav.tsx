@@ -4,9 +4,9 @@ import { usePathname } from "next/navigation";
 
 export default function SideNav() {
   return (
-    <div className="flex items-center justify-center p-2 ">
+    <header className="flex items-center justify-center p-2 absolute inset-x-0 top-0" >
       <NavLinks />
-    </div>
+    </header>
   );
 }
 
@@ -25,7 +25,7 @@ function NavLinks() {
         <Link
           href={link.href}
           key={link.name}
-          className={`font-font1 text-xl py-1 px-2 rounded-2xl transition duration-250 delay-100 ease-in-out hover:bg-hover ${pathname === link.href ? "bg-hover text-text-2" : "text-text-3"}`}
+          className={`font-font1 text-2xl py-1 px-2 text-shadow-h1 text-shadow-black rounded-2xl transition duration-250 delay-100 ease-in-out hover:bg-hover ${pathname === link.href ? "bg-hover text-text-2" : "text-text-3"}`}
         >
           {link.name}
         </Link>
